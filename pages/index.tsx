@@ -44,7 +44,7 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header companyName={entry.fields.title} links={links} />
+      <Header companyName={entry.fields.companyName} links={links} />
 
       <main>
         {entry.fields.sections?.map((s: IPageSectionDefault) => (
