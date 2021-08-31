@@ -4,6 +4,11 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body {
+    font-size: 19px;
+  }
+  html,
   body,
   h1,
   h2,
