@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import Link from 'next/link';
 
 export type HeaderProps = {
   companyName: string;
-  links: Link[];
+  links: link[];
 };
 
-export type Link = {
+export type link = {
   text: string;
   url: string;
 };
@@ -13,12 +13,18 @@ export type Link = {
 export const Header = ({ companyName, links }: HeaderProps) => {
   return (
     <div className="container mx-auto my-6 md:my-12 flex justify-between">
-      <h1 className="h1">{companyName}</h1>
+      <h1 className="h1">
+        <Link href="/">
+          <a>{companyName}</a>
+        </Link>
+      </h1>
       <nav>
         <ul>
-          {links.map((l: Link) => (
+          {links.map((l: link) => (
             <li key={l.url} className="inline-block ml-3 md:ml-12">
-              <a href={l.url}>{l.text}</a>
+              <Link href={l.url}>
+                <a href={l.url}>{l.text}</a>
+              </Link>
             </li>
           ))}
         </ul>

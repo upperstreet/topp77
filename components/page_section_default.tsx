@@ -25,6 +25,7 @@ export const PageSectionDefault = ({
 
   return (
     <div className={`${bg} py-6 lg:py-0`}>
+      <a id={entry.fields.slug}></a>
       <div className={`container mx-auto lg:flex lg:flex-row${reverse}`}>
         <div className="my-12 flex-1">
           <div className={`m${textMarginSide}-6`}>

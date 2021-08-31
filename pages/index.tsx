@@ -4,7 +4,7 @@ import { newClient } from '../lib/contentful';
 import { IPage, IPageSectionDefault } from '../@types/contentful_gen';
 import { PageSectionDefault } from '../components/page_section_default';
 import { Footer } from '../components/footer';
-import { Header, Link } from '../components/header';
+import { Header, link } from '../components/header';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const client = newClient();
@@ -21,7 +21,7 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = ({ entry }) => {
-  let links: Link[] = [];
+  let links: link[] = [];
   if (
     typeof entry.fields.sections !== 'undefined' &&
     entry.fields.sections.length > 0
@@ -29,7 +29,7 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
     links = entry.fields.sections.map((s: any) => {
       return {
         text: s.fields.title,
-        url: '#' + s.fields.title,
+        url: '#' + s.fields.slug,
       };
     });
   }

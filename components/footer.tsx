@@ -1,12 +1,12 @@
-import { linkSync } from 'fs';
-import { Link } from './header';
+import Link from 'next/link';
+import { link } from './header';
 
 export type FooterProps = {
   companyLegalName: string;
   companyAddress?: string;
   companyZipCode?: string;
   companyCity?: string;
-  links: Link[];
+  links: link[];
 };
 
 export const Footer = ({
@@ -27,9 +27,11 @@ export const Footer = ({
       </address>
       <nav>
         <ul>
-          {links?.map((l: Link) => (
+          {links?.map((l: link) => (
             <li key={l.url}>
-              <a href={l.url}>{l.text}</a>
+              <Link href={l.url}>
+                <a>{l.text}</a>
+              </Link>
             </li>
           ))}
         </ul>
