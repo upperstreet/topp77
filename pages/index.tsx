@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { newClient } from '../lib/contentful';
+import { IPage, IPageSectionDefault } from '../@types/contentful_gen';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const client = newClient();
@@ -15,7 +16,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 type HomeProps = {
-  entry: any;
+  entry: IPage;
 };
 
 const Home: NextPage<HomeProps> = ({ entry }) => {
@@ -31,8 +32,8 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
         <h1 className={styles.title}>{entry.fields.title}</h1>
 
         <div className={styles.grid}>
-          {entry.fields.sections.map((s: any) => (
-            <a key={s} href="#" className={styles.card}>
+          {entry.fields.sections?.map((s: IPageSectionDefault) => (
+            <a key={s.fields.slug} href="#" className={styles.card}>
               <h2>{s.fields.title}</h2>
               <p>{s.fields.content}</p>
             </a>
