@@ -1,4 +1,6 @@
 import { IPageSectionDefault } from '../@types/contentful_gen';
+import * as showdown from 'showdown';
+import React from 'react';
 
 export type PageSectionDefaultProps = {
   entry: IPageSectionDefault;
@@ -19,6 +21,8 @@ export const PageSectionDefault = ({
     textMarginSide = 'l';
   }
 
+  const sd = new showdown.Converter();
+
   return (
     <div className={`${bg}`}>
       <div className={`container mx-auto lg:flex lg:flex-row${reverse}`}>
@@ -33,7 +37,12 @@ export const PageSectionDefault = ({
               )) ||
                 entry.fields.title}
             </h2>
-            <p>{entry.fields.content}</p>
+            <article
+              className="prose"
+              dangerouslySetInnerHTML={{
+                __html: sd.makeHtml(entry.fields.content),
+              }}
+            ></article>
           </div>
         </div>
         {entry.fields.image && (
