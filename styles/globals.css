@@ -2,3 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .component-header {
+    @apply text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl;
+  }
+  .component-supheader {
+    @apply block text-base uppercase tracking-tight font-extrabold text-gray-900;
+  }
+}

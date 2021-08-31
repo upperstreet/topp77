@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { newClient } from '../lib/contentful';
 import { IPage, IPageSectionDefault } from '../@types/contentful_gen';
+import { PageSectionDefault } from '../components/page_section_default';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const client = newClient();
@@ -32,10 +33,7 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
 
         <div>
           {entry.fields.sections?.map((s: IPageSectionDefault) => (
-            <a key={s.fields.slug} href="#" className="">
-              <h2>{s.fields.title}</h2>
-              <p>{s.fields.content}</p>
-            </a>
+            <PageSectionDefault key={s.sys.id} entry={s} />
           ))}
         </div>
       </main>

@@ -35,6 +35,9 @@ export interface IPageSectionDefaultFields {
   /** Title */
   title?: string | undefined;
 
+  /** Sub Title */
+  subTitle?: string | undefined;
+
   /** Slug */
   slug?: string | undefined;
 
