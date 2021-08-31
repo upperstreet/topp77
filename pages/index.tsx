@@ -47,8 +47,8 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
       <Header companyName={entry.fields.companyName} links={links} />
 
       <main>
-        {entry.fields.sections?.map((s: IPageSectionDefault) => (
-          <PageSectionDefault key={s.sys.id} entry={s} />
+        {entry.fields.sections?.map((s: IPageSectionDefault, i: number) => (
+          <PageSectionDefault key={i} index={i} entry={s} />
         ))}
       </main>
 
