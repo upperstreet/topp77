@@ -58,6 +58,9 @@ export interface IPageSectionDefaultFields {
 
   /** Content */
   content?: string | undefined;
+
+  /** Image */
+  image?: Asset | undefined;
 }
 
 export interface IPageSectionDefault extends Entry<IPageSectionDefaultFields> {
