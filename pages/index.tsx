@@ -6,7 +6,7 @@ import { newClient } from '../lib/contentful';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const client = newClient();
-  const entry = await client.getEntry<any>('46tEDH6zIr0W1z488PMz2V');
+  const entry = await client.getEntry<any>('4ktYp0QYgeCFD5SEqbqHoH');
   return {
     props: {
       entry,
