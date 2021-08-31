@@ -12,6 +12,21 @@ export interface IPageFields {
 
   /** Sections */
   sections?: IPageSectionDefault[] | undefined;
+
+  /** Company Name */
+  companyName: string;
+
+  /** Company Legal Name */
+  companyLegalName: string;
+
+  /** Company Address */
+  companyAddress?: string | undefined;
+
+  /** Company Zip Code */
+  companyZipCode?: string | undefined;
+
+  /** Company City */
+  companyCity?: string | undefined;
 }
 
 export interface IPage extends Entry<IPageFields> {
