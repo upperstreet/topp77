@@ -26,7 +26,7 @@
     @apply text-3xl lg:text-4xl xl:text-5xl tracking-tight font-extrabold;
   }
   .h2-sup {
-    @apply block text-base lg:text-lg xl:text-xl uppercase tracking-tight font-extrabold;
+    @apply text-yellow-500 block text-base lg:text-lg xl:text-xl uppercase tracking-tight font-extrabold;
   }
   address {
     @apply not-italic;
