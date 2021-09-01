@@ -1,6 +1,7 @@
 import { IPageSectionDefault } from '../@types/contentful_gen';
 import * as showdown from 'showdown';
 import React from 'react';
+import { anchorName } from '../lib/navigation';
 
 export type PageSectionDefaultProps = {
   entry: IPageSectionDefault;
@@ -25,19 +26,21 @@ export const PageSectionDefault = ({
 
   return (
     <div className={`${bg} py-6 lg:py-0`}>
-      <a id={entry.fields.slug}></a>
+      <a id={anchorName(entry)}></a>
       <div className={`container mx-auto lg:flex lg:flex-row${reverse}`}>
         <div className="my-12 flex-1">
           <div className={`m${textMarginSide}-6`}>
-            <h2 className="h2 mb-8">
-              {(entry.fields.title && entry.fields.subTitle && (
-                <>
-                  <span className="h2-sup">{entry.fields.title}</span>
-                  {entry.fields.subTitle}
-                </>
-              )) ||
-                entry.fields.title}
-            </h2>
+            {entry.fields.showTitle && (
+              <h2 className="h2 mb-8">
+                {(entry.fields.title && entry.fields.subTitle && (
+                  <>
+                    <span className="h2-sup">{entry.fields.title}</span>
+                    {entry.fields.subTitle}
+                  </>
+                )) ||
+                  entry.fields.title}
+              </h2>
+            )}
             <article
               className="prose"
               dangerouslySetInnerHTML={{

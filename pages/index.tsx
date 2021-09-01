@@ -5,6 +5,7 @@ import { IPage, IPageSectionDefault } from '../@types/contentful_gen';
 import { PageSectionDefault } from '../components/page_section_default';
 import { Footer } from '../components/footer';
 import { Header, link } from '../components/header';
+import { menuLinks } from '../lib/navigation';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const client = newClient();
@@ -21,18 +22,10 @@ type HomeProps = {
 };
 
 const Home: NextPage<HomeProps> = ({ entry }) => {
-  let links: link[] = [];
-  if (
-    typeof entry.fields.sections !== 'undefined' &&
-    entry.fields.sections.length > 0
-  ) {
-    links = entry.fields.sections.map((s: any) => {
-      return {
-        text: s.fields.title,
-        url: '#' + s.fields.slug,
-      };
-    });
-  }
+  const links =
+    typeof entry.fields.sections !== 'undefined'
+      ? menuLinks(entry.fields.sections)
+      : [];
 
   return (
     <div>
