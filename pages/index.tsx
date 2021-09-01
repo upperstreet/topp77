@@ -26,12 +26,21 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
     typeof entry.fields.sections !== 'undefined' &&
     entry.fields.sections.length > 0
   ) {
-    links = entry.fields.sections.map((s: any) => {
-      return {
-        text: s.fields.title,
-        url: '#' + s.fields.slug,
-      };
-    });
+    links = entry.fields.sections.reduce(
+      (acc: link[], s: IPageSectionDefault) => {
+        if (s.fields.showMenuLink !== true) {
+          return acc;
+        }
+
+        const l = {
+          text: s.fields.title,
+          url: '#' + s.fields.slug,
+        };
+
+        return [...acc, l];
+      },
+      []
+    );
   }
 
   return (

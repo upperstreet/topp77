@@ -64,6 +64,9 @@ export interface IPageSectionDefaultFields {
 
   /** Show title */
   showTitle?: boolean | undefined;
+
+  /** Show menu link */
+  showMenuLink?: boolean | undefined;
 }
 
 export interface IPageSectionDefault extends Entry<IPageSectionDefaultFields> {
