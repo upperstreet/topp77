@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Build
+      - name: Build static HTML
         run: |
           yarn build
           yarn export
