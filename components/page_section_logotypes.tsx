@@ -18,11 +18,14 @@ export const PageSectionLogotypes = ({
       <div className="container mx-auto">
         <div className="lg:flex lg:flex-row">
           {entry.fields.logotypes?.map((l: Asset) => (
-            <div key={l.sys.id} className="flex flex-1 items-center">
+            <div
+              key={l.sys.id}
+              className="flex flex-1 justify-center items-center"
+            >
               <img
                 src={l.fields.file.url}
                 alt={l.fields.title}
-                className="w-4/5"
+                className="w-4/5 my-6 lg:my-0"
               />
             </div>
           ))}
