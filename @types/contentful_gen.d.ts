@@ -61,6 +61,9 @@ export interface IPageSectionDefaultFields {
 
   /** Image */
   image?: Asset | undefined;
+
+  /** Show title */
+  showTitle?: boolean | undefined;
 }
 
 export interface IPageSectionDefault extends Entry<IPageSectionDefaultFields> {

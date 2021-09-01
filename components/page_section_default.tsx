@@ -29,15 +29,17 @@ export const PageSectionDefault = ({
       <div className={`container mx-auto lg:flex lg:flex-row${reverse}`}>
         <div className="my-12 flex-1">
           <div className={`m${textMarginSide}-6`}>
-            <h2 className="h2 mb-8">
-              {(entry.fields.title && entry.fields.subTitle && (
-                <>
-                  <span className="h2-sup">{entry.fields.title}</span>
-                  {entry.fields.subTitle}
-                </>
-              )) ||
-                entry.fields.title}
-            </h2>
+            {entry.fields.showTitle && (
+              <h2 className="h2 mb-8">
+                {(entry.fields.title && entry.fields.subTitle && (
+                  <>
+                    <span className="h2-sup">{entry.fields.title}</span>
+                    {entry.fields.subTitle}
+                  </>
+                )) ||
+                  entry.fields.title}
+              </h2>
+            )}
             <article
               className="prose"
               dangerouslySetInnerHTML={{
