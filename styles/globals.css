@@ -31,4 +31,7 @@
   address {
     @apply not-italic;
   }
+  blockquote {
+    @apply text-2xl;
+  }
 }
