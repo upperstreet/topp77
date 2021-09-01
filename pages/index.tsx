@@ -1,11 +1,17 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { newClient } from '../lib/contentful';
-import { IPage, IPageSectionDefault } from '../@types/contentful_gen';
+import {
+  IPage,
+  IPageSectionDefault,
+  IPageSectionLogotypes,
+} from '../@types/contentful_gen';
 import { PageSectionDefault } from '../components/page_section_default';
 import { Footer } from '../components/footer';
 import { Header, link } from '../components/header';
 import { menuLinks } from '../lib/navigation';
+import { isPageSectionDefault, isPageSectionLogotypes } from '../lib/types';
+import { PageSectionLogotypes } from '../components/page_section_logotypes';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const client = newClient();
@@ -40,9 +46,15 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
       <Header companyName={entry.fields.companyName} links={links} />
 
       <main>
-        {entry.fields.sections?.map((s: IPageSectionDefault, i: number) => (
-          <PageSectionDefault key={i} index={i} entry={s} />
-        ))}
+        {entry.fields.sections?.map(
+          (s: IPageSectionDefault | IPageSectionLogotypes, i: number) =>
+            (isPageSectionDefault(s) && (
+              <PageSectionDefault key={i} index={i} entry={s} />
+            )) ||
+            (isPageSectionLogotypes(s) && (
+              <PageSectionLogotypes key={i} index={i} entry={s} />
+            ))
+        )}
       </main>
 
       <Footer
