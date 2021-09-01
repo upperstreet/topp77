@@ -67,6 +67,7 @@ jobs:
   
   deploy:
     name: Deploy to GitHub Pages
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: [test, build]
     runs-on: ubuntu-latest
     steps:
