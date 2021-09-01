@@ -44,7 +44,6 @@ jobs:
           path: out/
   
   deploy:
-    if: github.ref == 'refs/heads/main'
     needs: [test, build]
     runs-on: ubuntu-latest
     steps:
