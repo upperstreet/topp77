@@ -23,15 +23,15 @@
     @apply text-xl tracking-tight font-extrabold;
   }
   h2 {
-    @apply text-3xl lg:text-4xl tracking-tight font-extrabold;
+    @apply text-3xl lg:text-4xl xl:text-5xl tracking-tight font-extrabold;
   }
   .h2-sup {
-    @apply block text-base uppercase tracking-tight font-extrabold;
+    @apply text-yellow-500 block text-base lg:text-lg xl:text-xl uppercase tracking-tight font-extrabold;
   }
   address {
     @apply not-italic;
   }
   blockquote {
-    @apply text-2xl;
+    @apply text-2xl lg:text-3xl;
   }
 }

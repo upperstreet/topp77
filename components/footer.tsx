@@ -17,15 +17,15 @@ export const Footer = ({
   links,
 }: FooterProps) => {
   return (
-    <div className="container mx-auto my-12 md:my-24 flex justify-between">
-      <address>
+    <div className="container mx-auto my-12 md:my-24 flex justify-center lg:justify-between">
+      <address className="text-center lg:text-left">
         <strong>{companyLegalName}</strong>
         <br />
         {companyAddress}
         <br />
         {companyZipCode} {companyCity}
       </address>
-      <nav>
+      <nav className="hidden lg:block">
         <ul>
           {links?.map((l: link) => (
             <li key={l.url}>
