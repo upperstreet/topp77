@@ -6,6 +6,8 @@ export type FooterProps = {
   companyAddress?: string;
   companyZipCode?: string;
   companyCity?: string;
+  companyRegistrationNumber?: string;
+  vatIdentificationNumber?: string;
   links: link[];
 };
 
@@ -14,18 +16,27 @@ export const Footer = ({
   companyAddress,
   companyZipCode,
   companyCity,
+  companyRegistrationNumber,
+  vatIdentificationNumber,
   links,
 }: FooterProps) => {
   return (
-    <div className="container mx-auto my-12 md:my-24 flex justify-center lg:justify-between">
-      <address className="text-center lg:text-left">
-        <strong>{companyLegalName}</strong>
-        <br />
-        {companyAddress}
-        <br />
-        {companyZipCode} {companyCity}
-      </address>
-      <nav className="hidden lg:block">
+    <div className="container mx-auto my-12 md:my-24 flex">
+      <div className="flex-1 text-center lg:text-left">
+        <address>
+          <strong>{companyLegalName}</strong>
+          <br />
+          {companyAddress}
+          <br />
+          {companyZipCode} {companyCity}
+        </address>
+        <p className="mt-6">
+          Org.nr: {companyRegistrationNumber}
+          <br />
+          Momsreg.nr: {vatIdentificationNumber}
+        </p>
+      </div>
+      <nav className="hidden lg:flex-1 lg:block">
         <ul>
           {links?.map((l: link) => (
             <li key={l.url}>

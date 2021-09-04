@@ -62,6 +62,8 @@ const Home: NextPage<HomeProps> = ({ entry }) => {
         companyAddress={entry.fields.companyAddress}
         companyZipCode={entry.fields.companyZipCode}
         companyCity={entry.fields.companyCity}
+        companyRegistrationNumber={entry.fields.companyRegistrationNumber}
+        vatIdentificationNumber={entry.fields.vatIdentificationNumber}
         links={links}
       />
     </div>
