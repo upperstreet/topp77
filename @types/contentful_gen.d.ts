@@ -27,6 +27,12 @@ export interface IPageFields {
 
   /** Company City */
   companyCity?: string | undefined;
+
+  /** Company Registration Number */
+  companyRegistrationNumber?: string | undefined;
+
+  /** VAT Identification Number */
+  vatIdentificationNumber?: string | undefined;
 }
 
 export interface IPage extends Entry<IPageFields> {
