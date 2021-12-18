@@ -28,8 +28,8 @@ export const PageSectionDefault = ({
     <div className={`${bg} pt-6 lg:pt-0`}>
       <a id={anchorName(entry)}></a>
       <div className={`container mx-auto lg:flex lg:flex-row${reverse}`}>
-        <div className="my-12 flex-1">
-          <div className={`lg:m${textMarginSide}-6`}>
+        <div className="my-10 lg:my-24 flex-1">
+          <div className={`lg:m${textMarginSide}-9`}>
             {entry.fields.showTitle && (
               <h2 className="h2 mb-8">
                 {(entry.fields.title && entry.fields.subTitle && (
